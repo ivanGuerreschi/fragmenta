@@ -1,6 +1,6 @@
-/* hello.h
+/* info.h
 
-   Copyright (C) 202333 Ivan Guerreschi.
+   Copyright (C) 2023 Ivan Guerreschi.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -15,5 +15,25 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>.  */
 
-void hello (void);
+#ifndef INFO_H
+#define INFO_H
+
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+const char *version (void);
+const char *package (void);
+const char *bugreport (void);
+const char *license (void);
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* INFO_H */
 

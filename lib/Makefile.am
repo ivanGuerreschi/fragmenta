@@ -15,6 +15,8 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+include $(top_srcdir)/flymake.mk
+
 AM_CFLAGS = -I $(top_srcdir)/lib \
           -Wall -Wextra -Wformat=2 -Wno-unused-parameter -Wshadow \
           -Wwrite-strings -Wstrict-prototypes -Wold-style-definition \
@@ -22,7 +24,6 @@ AM_CFLAGS = -I $(top_srcdir)/lib \
           -Wjump-misses-init -Wlogical-op
 
 noinst_LIBRARIES = libfragmenta.a
-noinst_HEADERS = hello.h
+noinst_HEADERS = info.h
 
-libfragmenta_a_SOURCES = $(libfragmenta_a_HEADERS) hello.c
-
+libfragmenta_a_SOURCES = $(libfragmenta_a_HEADERS) info.c
