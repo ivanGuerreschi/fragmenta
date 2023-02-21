@@ -23,10 +23,17 @@ AM_INIT_AUTOMAKE([foreign])
 AC_PROG_CC
 AC_PROG_RANLIB
 AC_CONFIG_HEADERS([config.h])
+
+dnl Check -fanalyze flag
+AX_CHECK_COMPILE_FLAG(-fanalyzer,
+	[AX_APPEND_FLAG([-fanalyzer])],
+	[echo "C compiler doesn't support Static Analyzer Options (-fanalyzer)"])
+
 AC_CONFIG_FILES([
- Makefile
- lib/Makefile
- src/Makefile 
+	Makefile
+ 	lib/Makefile
+ 	src/Makefile 
 ])
+
 AC_OUTPUT
 
