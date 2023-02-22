@@ -19,12 +19,12 @@ All of these programs are available from
 ftp://ftp.gnu.org/gnu.
 
 Install dependencies on Ubuntu
-sudo apt update
-sudo apt install gcc autotools-dev autoconf autoconf-archive
+    sudo apt update
+    sudo apt install gcc autotools-dev autoconf autoconf-archive
 
 Install dependencies on Fedora
-sudo dnf update
-sudo dnf install gcc autotools-dev autoconf autoconf-archive
+    sudo dnf update
+    sudo dnf install gcc autotools-dev autoconf autoconf-archive
 
 Building
 --------
@@ -32,9 +32,22 @@ Building
 After getting the git sources, and installing the tools above, you
 can run
 
-  bash bootstrap
-  ./src/fragmenta
+    bash bootstrap
 
 to do a fresh build.  After that first time, running make should suffice.
+
+Run
+---
+
+Run Guile shell
+
+    ./src/fragmenta
+
+For print version
+    (display (version))(newline)
+
+For load hello.scm
+    ./src/fragmenta
+    (load "hello.scm")
 
 fragmenta is free software. See the file LICENSE for copying conditions.
