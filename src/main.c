@@ -21,7 +21,14 @@
 static SCM
 print_version (void)
 {
-  SCM result = scm_from_utf8_string (version());
+  SCM result = scm_from_utf8_string (version ());
+  return result;
+}
+
+static SCM
+print_package (void)
+{
+  SCM result = scm_from_utf8_string (package ());
   return result;
 }
 
@@ -29,6 +36,7 @@ static void
 inner_main (void *closure, int argc, char **argv)
 {
   scm_c_define_gsubr ("version", 0, 0, 0, print_version);
+  scm_c_define_gsubr ("package", 0, 0, 0, print_package);
   
   scm_shell(argc, argv);
 }
