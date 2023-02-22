@@ -21,12 +21,12 @@ ftp://ftp.gnu.org/gnu.
 Install dependencies on Ubuntu
     
     sudo apt update
-    sudo apt install gcc autotools-dev autoconf autoconf-archive
+    sudo apt install gcc autotools-dev autoconf autoconf-archive guile-3.0-dev
 
 Install dependencies on Fedora
     
     sudo dnf update
-    sudo dnf install gcc autotools-dev autoconf autoconf-archive
+    sudo dnf install gcc autotools-dev autoconf autoconf-archive guile30-devel
 
 Building
 --------
