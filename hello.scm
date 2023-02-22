@@ -17,3 +17,5 @@
 
 (display (version))
 (newline)
+(display (package))
+(newline)
