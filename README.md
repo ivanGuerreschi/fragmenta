@@ -19,10 +19,12 @@ All of these programs are available from
 ftp://ftp.gnu.org/gnu.
 
 Install dependencies on Ubuntu
+    
     sudo apt update
     sudo apt install gcc autotools-dev autoconf autoconf-archive
 
 Install dependencies on Fedora
+    
     sudo dnf update
     sudo dnf install gcc autotools-dev autoconf autoconf-archive
 
@@ -44,9 +46,11 @@ Run Guile shell
     ./src/fragmenta
 
 For print version
+    
     (display (version))(newline)
 
 For load hello.scm
+    
     ./src/fragmenta
     (load "hello.scm")
 
