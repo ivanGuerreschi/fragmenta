@@ -26,5 +26,6 @@ AM_CFLAGS = -I $(top_srcdir)/src -I $(top_srcdir)/lib \
 nobase_include_HEADERS =
 bin_PROGRAMS = fragmenta
 fragmenta_SOURCES = main.c
-fragmenta_LDADD = $(top_builddir)/lib/libfragmenta.a $(AM_LDFLAGS)
+fragmenta_CFLAGS = @GUILE_CFLAGS@ -I $(top_srcdir)/lib
+fragmenta_LDADD = @GUILE_LIBS@ $(top_builddir)/lib/libfragmenta.a
 

@@ -51,9 +51,13 @@ m4/lt~obsolete.m4
 Makefile
 
 lib/.deps
-lib/hello.o
+lib/info.o
 lib/libfragmenta.a
 
 src/.deps
 src/main.o
+src/fragmenta-main.o
 src/fragmenta
+
+TODO.org
+.dir-locals.el

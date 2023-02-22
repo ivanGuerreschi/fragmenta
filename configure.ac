@@ -24,6 +24,9 @@ AC_PROG_CC
 AC_PROG_RANLIB
 AC_CONFIG_HEADERS([config.h])
 
+# Check for Guile
+PKG_CHECK_MODULES([GUILE], [guile-3.0])
+
 dnl Check -fanalyze flag
 AX_CHECK_COMPILE_FLAG(-fanalyzer,
 	[AX_APPEND_FLAG([-fanalyzer])],
