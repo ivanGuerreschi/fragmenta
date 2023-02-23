@@ -32,12 +32,28 @@ print_package (void)
   return result;
 }
 
+static SCM
+print_license (void)
+{
+  SCM result = scm_from_utf8_string (license ());
+  return result;
+}
+
+static SCM
+print_bugreport (void)
+{
+  SCM result = scm_from_utf8_string (bugreport ());
+  return result;
+}
+
 static void
 inner_main (void *closure, int argc, char **argv)
 {
   scm_c_define_gsubr ("version", 0, 0, 0, print_version);
   scm_c_define_gsubr ("package", 0, 0, 0, print_package);
-  
+  scm_c_define_gsubr ("license", 0, 0, 0, print_license);
+  scm_c_define_gsubr ("bugreport", 0, 0, 0, print_bugreport);
+
   scm_shell(argc, argv);
 }
 
