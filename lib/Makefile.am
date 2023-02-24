@@ -24,6 +24,6 @@ AM_CFLAGS = -I $(top_srcdir)/lib \
           -Wjump-misses-init -Wlogical-op
 
 noinst_LIBRARIES = libfragmenta.a
-noinst_HEADERS = info.h
+noinst_HEADERS = info.h language.h
 
-libfragmenta_a_SOURCES = $(libfragmenta_a_HEADERS) info.c
+libfragmenta_a_SOURCES = $(libfragmenta_a_HEADERS) info.c language.c

@@ -17,5 +17,5 @@
 
 SUBDIRS = lib/ src/
 
-dist_doc_DATA = README.md
+dist_doc_DATA = README.md LICENSE
 
