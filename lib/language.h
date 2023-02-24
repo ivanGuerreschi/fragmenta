@@ -18,6 +18,10 @@
 #ifndef LANGUAGE_H
 #define LANGUAGE_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 typedef struct
 {
   char language[50];
@@ -28,6 +32,7 @@ typedef struct
 
 fragment_type *init_fragment (void);
 fragment_type *all_fragment (fragment_type *fragment);
+fragment_type *all_fragment_string (fragment_type *fragment);
 const char *search_fragment_for_language (fragment_type *fragment, const char *key);
 const char *search_fragment_for_name (fragment_type *fragment, const char *key);
 const char *search_fragment_for_snippet (fragment_type *fragment, const char *key);
