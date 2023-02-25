@@ -18,10 +18,9 @@
 include $(top_srcdir)/flymake.mk
 
 AM_CFLAGS = -I $(top_srcdir)/lib \
-          -Wall -Wextra -Wformat=2 -Wno-unused-parameter -Wshadow \
-          -Wwrite-strings -Wstrict-prototypes -Wold-style-definition \
-          -Wredundant-decls -Wnested-externs -Wmissing-include-dirs \
-          -Wjump-misses-init -Wlogical-op
+	-Wall -Wextra -Wformat=2 -Wshadow -Wjump-misses-init -Wlogical-op\
+	-Wwrite-strings -Wstrict-prototypes -Wold-style-definition \
+	-Wredundant-decls -Wnested-externs -Wmissing-include-dirs
 
 noinst_LIBRARIES = libfragmenta.a
 noinst_HEADERS = info.h language.h

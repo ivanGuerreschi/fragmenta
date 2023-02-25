@@ -18,10 +18,9 @@
 include $(top_srcdir)/flymake.mk
 
 AM_CFLAGS = -I $(top_srcdir)/src -I $(top_srcdir)/lib \
-	    -Wall -Wextra -Wformat=2 -Wno-unused-parameter -Wshadow \
-            -Wwrite-strings -Wstrict-prototypes -Wold-style-definition \
-            -Wredundant-decls -Wnested-externs -Wmissing-include-dirs \
-	    -Wjump-misses-init -Wlogical-op
+	-Wall -Wextra -Wformat=2 -Wjump-misses-init -Wlogical-op -Wshadow \
+	-Wwrite-strings -Wstrict-prototypes -Wold-style-definition \
+	-Wredundant-decls -Wnested-externs -Wmissing-include-dirs
 
 nobase_include_HEADERS =
 bin_PROGRAMS = fragmenta
