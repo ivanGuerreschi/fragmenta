@@ -23,3 +23,5 @@
 (newline)
 (display (bugreport))
 (newline)
+(display (fragments))
+(newline)

@@ -15,4 +15,22 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>.  */
 
+#include <stdio.h>
 #include "language.h"
+
+static fragment_type fragment[] = {
+  {"C", "puts", "puts (\"Hello, World!\");"},
+  {"C", "printf", "printf (\"%s\\n\", \"Hello, World!\");"}
+};
+
+size_t
+length (void)
+{
+  return sizeof (fragment) / sizeof (fragment[0]);
+}
+
+fragment_type *
+all_fragments (void)
+{
+  return fragment;
+}

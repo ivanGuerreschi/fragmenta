@@ -16,7 +16,10 @@
    along with this program.  If not, see <http://www.gnu.org/licenses/>.  */
 
 #include "info.h"
+#include "language.h"
 #include <libguile.h>
+#include <stdio.h>
+#include <string.h>
 
 static SCM
 print_version (void)
@@ -46,6 +49,53 @@ print_bugreport (void)
   return result;
 }
 
+static SCM
+print_all_fragments (void)
+{
+  fragment_type *fragments = all_fragments ();
+
+  size_t fragments_length = length ();
+
+  char *fragment = malloc (strlen (fragments[0].language) + 2
+			    + strlen (fragments[0].name) + 2
+			    + strlen (fragments[0].snippet) + 2);
+
+  strcpy (fragment, fragments[0].language);
+  strcat (fragment, " ");
+  strcat (fragment, fragments[0].name);
+  strcat (fragment, " ");
+  strcat (fragment, fragments[0].snippet);
+  strcat (fragment, "\n");
+
+  for (size_t i = 1; i < fragments_length; i++)
+    {
+      char *tmp_fragment;
+      tmp_fragment = malloc (strlen (fragments[i].language) + 2);
+      strcpy (tmp_fragment, fragments[i].language);
+      strcat (tmp_fragment, " ");
+      tmp_fragment =
+	realloc (tmp_fragment,
+		 strlen (tmp_fragment) + strlen (fragments[i].name) + 2);
+      strcat (tmp_fragment, fragments[i].name);
+      strcat (tmp_fragment, " ");
+      tmp_fragment =
+	realloc (tmp_fragment,
+		 strlen (tmp_fragment) + strlen (fragments[i].snippet) + 2);
+      strcat (tmp_fragment, fragments[i].snippet);
+      strcat (tmp_fragment, "\n");
+      fragment =
+	realloc (fragment, strlen (fragment) + strlen (tmp_fragment) + 1);
+      strcat (fragment, tmp_fragment);
+      free (tmp_fragment);
+      tmp_fragment = NULL;
+    }
+
+  SCM result = scm_from_utf8_string (fragment);
+  free (fragment);
+  fragment = NULL;
+  return result;
+}
+
 static void
 inner_main (void *closure, int argc, char **argv)
 {
@@ -53,13 +103,15 @@ inner_main (void *closure, int argc, char **argv)
   scm_c_define_gsubr ("package", 0, 0, 0, print_package);
   scm_c_define_gsubr ("license", 0, 0, 0, print_license);
   scm_c_define_gsubr ("bugreport", 0, 0, 0, print_bugreport);
+  scm_c_define_gsubr ("fragments", 0, 0, 0, print_all_fragments);
 
-  scm_shell(argc, argv);
+  scm_shell (argc, argv);
 }
 
 int
 main (int argc, char **argv)
 {
   scm_boot_guile (argc, argv, inner_main, 0);
+
   return 0;
 }

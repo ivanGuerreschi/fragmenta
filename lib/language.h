@@ -22,6 +22,8 @@
 extern "C" {
 #endif
 
+#include <stdlib.h>
+  
 typedef struct
 {
   char language[50];
@@ -29,14 +31,8 @@ typedef struct
   char snippet[50];
 } fragment_type;
 
-fragment_type *init_fragment (void);
-const char *all_fragment (fragment_type *fragment);
-const char *search (fragment_type *fragment, const char *key);
-const char *search_by_language (fragment_type *fragment, const char *key);
-const char *search_by_name (fragment_type *fragment, const char *key);
-const char *search_snippet (fragment_type *fragment,
-			    const char *language,
-			    const char *name);
+size_t length (void);
+fragment_type *all_fragments (void);
 
 #ifdef __cplusplus
 }
