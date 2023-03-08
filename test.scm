@@ -25,5 +25,5 @@
 (newline)
 (display (fragments))
 (newline)
-(display (search_for_name  "C" "puts"))
+(display (search_for_name  "c" "puts"))
 (newline)
