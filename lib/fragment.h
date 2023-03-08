@@ -19,7 +19,8 @@
 #define FRAGMENT_H
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #include <stdlib.h>
@@ -32,11 +33,12 @@ typedef struct
 } fragment_type;
 
 size_t length (void);
-fragment_type *all_fragments (void);
-const char *search_fragment_for_name (const char *language, const char *key);
-  
+char *all_fragments (void);
+const char *search_fragment_for_name (const char *language,
+				      const char *key);
+
 #ifdef __cplusplus
 }
 #endif
 
-#endif /* FRAGMENT_H */
+#endif				/* FRAGMENT_H */

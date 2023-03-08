@@ -32,11 +32,48 @@ length (void)
   return sizeof (fragment) / sizeof (fragment[0]);
 }
 
-fragment_type *
+char *
 all_fragments (void)
 {
-  return fragment;
+  size_t fragments_length = length ();
+
+  char *fragments = malloc (strlen (fragment[0].language) + 2
+			    + strlen (fragment[0].name) + 2
+			    + strlen (fragment[0].snippet) + 2);
+
+  strcpy (fragments, fragment[0].language);
+  strcat (fragments, " ");
+  strcat (fragments, fragment[0].name);
+  strcat (fragments, " ");
+  strcat (fragments, fragment[0].snippet);
+  strcat (fragments, "\n");
+
+  for (size_t i = 1; i < fragments_length; i++)
+    {
+      char *tmp_fragment;
+      tmp_fragment = malloc (strlen (fragment[i].language) + 2);
+      strcpy (tmp_fragment, fragment[i].language);
+      strcat (tmp_fragment, " ");
+      tmp_fragment =
+	realloc (tmp_fragment,
+		 strlen (tmp_fragment) + strlen (fragment[i].name) + 2);
+      strcat (tmp_fragment, fragment[i].name);
+      strcat (tmp_fragment, " ");
+      tmp_fragment =
+	realloc (tmp_fragment,
+		 strlen (tmp_fragment) + strlen (fragment[i].snippet) + 2);
+      strcat (tmp_fragment, fragment[i].snippet);
+      strcat (tmp_fragment, "\n");
+      fragments =
+	realloc (fragments, strlen (fragments) + strlen (tmp_fragment) + 1);
+      strcat (fragments, tmp_fragment);
+      free (tmp_fragment);
+      tmp_fragment = NULL;
+    }
+
+  return fragments;
 }
+
 
 const char *
 search_fragment_for_name (const char *language, const char *key)
