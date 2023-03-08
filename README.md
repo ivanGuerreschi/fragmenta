@@ -51,6 +51,6 @@ For print version
 
 For load hello.scm
     
-    ./src/fragmenta hello.scm
+    ./src/fragmenta test.scm
 
 fragmenta is free software. See the file LICENSE for copying conditions.

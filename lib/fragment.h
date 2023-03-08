@@ -1,4 +1,4 @@
-/* language.c
+/* fragment.h
 
    Copyright (C) 2023 Ivan Guerreschi.
 
@@ -15,22 +15,28 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>.  */
 
-#include <stdio.h>
-#include "language.h"
+#ifndef FRAGMENT_H
+#define FRAGMENT_H
 
-static fragment_type fragment[] = {
-  {"C", "puts", "puts (\"Hello, World!\");"},
-  {"C", "printf", "printf (\"%s\\n\", \"Hello, World!\");"}
-};
+#ifdef __cplusplus
+extern "C" {
+#endif
 
-size_t
-length (void)
+#include <stdlib.h>
+
+typedef struct
 {
-  return sizeof (fragment) / sizeof (fragment[0]);
-}
+  char language[50];
+  char name[50];
+  char snippet[50];
+} fragment_type;
 
-fragment_type *
-all_fragments (void)
-{
-  return fragment;
+size_t length (void);
+fragment_type *all_fragments (void);
+const char *search_fragment_for_name (const char *language, const char *key);
+  
+#ifdef __cplusplus
 }
+#endif
+
+#endif /* FRAGMENT_H */

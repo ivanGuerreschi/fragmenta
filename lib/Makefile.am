@@ -23,6 +23,6 @@ AM_CFLAGS = -I $(top_srcdir)/lib \
 	-Wredundant-decls -Wnested-externs -Wmissing-include-dirs
 
 noinst_LIBRARIES = libfragmenta.a
-noinst_HEADERS = info.h language.h
+noinst_HEADERS = info.h fragment.h
 
-libfragmenta_a_SOURCES = $(libfragmenta_a_HEADERS) info.c language.c
+libfragmenta_a_SOURCES = $(libfragmenta_a_HEADERS) info.c fragment.c

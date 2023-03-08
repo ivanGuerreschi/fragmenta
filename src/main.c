@@ -16,7 +16,7 @@
    along with this program.  If not, see <http://www.gnu.org/licenses/>.  */
 
 #include "info.h"
-#include "language.h"
+#include "fragment.h"
 #include <libguile.h>
 #include <stdio.h>
 #include <string.h>
@@ -96,6 +96,15 @@ print_all_fragments (void)
   return result;
 }
 
+static SCM
+print_search_fragment_for_name (SCM l, SCM k)
+{
+  const char *languge = scm_to_utf8_stringn (l, NULL);
+  const char *key = scm_to_utf8_stringn (k, NULL); 
+  SCM result = scm_from_utf8_string (search_fragment_for_name (languge, key));
+  return result;
+}
+
 static void
 inner_main (void *closure, int argc, char **argv)
 {
@@ -104,6 +113,7 @@ inner_main (void *closure, int argc, char **argv)
   scm_c_define_gsubr ("license", 0, 0, 0, print_license);
   scm_c_define_gsubr ("bugreport", 0, 0, 0, print_bugreport);
   scm_c_define_gsubr ("fragments", 0, 0, 0, print_all_fragments);
+  scm_c_define_gsubr ("search_for_name", 2, 0, 0, print_search_fragment_for_name);
 
   scm_shell (argc, argv);
 }
@@ -112,6 +122,6 @@ int
 main (int argc, char **argv)
 {
   scm_boot_guile (argc, argv, inner_main, 0);
-
+  
   return 0;
 }

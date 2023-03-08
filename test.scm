@@ -1,4 +1,4 @@
-; hello.scm
+; test.scm
 
 ; Copyright (C) 2023 Ivan Guerreschi.
 ;
@@ -24,4 +24,6 @@
 (display (bugreport))
 (newline)
 (display (fragments))
+(newline)
+(display (search_for_name  "C" "puts"))
 (newline)
