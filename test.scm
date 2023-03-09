@@ -25,5 +25,5 @@
 (newline)
 (display (fragments))
 (newline)
-(display (search_for_name  "c" "puts"))
-(newline)
+(define name '("puts" "printf" "include"))
+(for-each (lambda (n) (display (search_for_name "c" n)) (newline)) name)

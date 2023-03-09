@@ -76,7 +76,7 @@ all_fragments (void)
 
 
 const char *
-search_fragment_for_name (const char *language, const char *key)
+search_fragment_for_name (const char *language, const char *name)
 {
   size_t length_fragments = length ();
   char *searched_snippet;
@@ -85,7 +85,7 @@ search_fragment_for_name (const char *language, const char *key)
     {
       if (strcmp (fragment[i].language, language) == 0)
 	{
-	  if (strcmp (fragment[i].name, key) == 0)
+	  if (strcmp (fragment[i].name, name) == 0)
 	    {
 	      searched_snippet = malloc (strlen (fragment[i].snippet) + 1);
 	      strcpy (searched_snippet, fragment[i].snippet);

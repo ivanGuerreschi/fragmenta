@@ -35,7 +35,7 @@ typedef struct
 size_t length (void);
 char *all_fragments (void);
 const char *search_fragment_for_name (const char *language,
-					const char *key);
+				      const char *name);
 
 #ifdef __cplusplus
 }
