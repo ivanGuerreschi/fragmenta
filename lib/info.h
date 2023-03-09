@@ -23,7 +23,8 @@
 #endif
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 const char *version (void);
@@ -35,5 +36,4 @@ const char *license (void);
 }
 #endif
 
-#endif /* INFO_H */
-
+#endif				/* INFO_H */
