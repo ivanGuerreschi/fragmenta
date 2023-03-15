@@ -21,19 +21,22 @@
 const char *
 version (void)
 {
-  return VERSION;
+  const char *version = VERSION;
+  return version;
 }
 
 const char *
 package (void)
 {
-  return PACKAGE_STRING;
+  const char *package_string = PACKAGE_STRING;
+  return package_string;
 }
 
 const char *
 bugreport (void)
 {
-  return PACKAGE_BUGREPORT;
+  const char * package_bugreport = PACKAGE_BUGREPORT;
+  return package_bugreport;
 }
 
 const char *
