@@ -1,4 +1,4 @@
-/* search_fragment_for_name.c
+/* search_fragment_for_name_test.c
 
    Copyright (C) 2023 Ivan Guerreschi.
 

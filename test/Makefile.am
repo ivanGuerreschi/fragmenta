@@ -20,8 +20,11 @@
 
 include $(top_srcdir)/flymake.mk
 
-TESTS = search_fragment_for_name_test
+TESTS = search_fragment_for_name_test length_test
 check_PROGRAMS = $(TESTS)
-search_fragment_for_name_test_SOURCES = search_fragment_for_name.c
+search_fragment_for_name_test_SOURCES = search_fragment_for_name_test.c
 search_fragment_for_name_test_CFLAGS = -I $(top_srcdir)/lib 
 search_fragment_for_name_test_LDADD = $(top_builddir)/lib/libfragmenta.a
+length_test_SOURCES = length_test.c
+length_test_CFLAGS = -I $(top_srcdir)/lib 
+length_test_LDADD = $(top_builddir)/lib/libfragmenta.a
