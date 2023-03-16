@@ -23,8 +23,8 @@ main ()
 {
   const char *search_puts = search_fragment_for_name ("c", "puts");
   const char *expected = "puts (\"Hello, World!\");";
-    if (strcmp (search_puts, expected) == 0)
-      return 0;
-    else
-      return 1;
-} 
+  if (strcmp (search_puts, expected) == 0)
+    return 0;
+  else
+    return 1;
+}
