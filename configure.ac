@@ -24,6 +24,11 @@ AC_PROG_CC
 AC_PROG_RANLIB
 AC_CONFIG_HEADERS([config.h])
 
+# Checks for library functions.
+AC_FUNC_MALLOC
+AC_FUNC_REALLOC
+AC_TYPE_SIZE_T
+
 # Check for Guile
 PKG_CHECK_MODULES([GUILE], [guile-3.0])
 
@@ -35,7 +40,8 @@ AX_CHECK_COMPILE_FLAG(-fanalyzer,
 AC_CONFIG_FILES([
 	Makefile
  	lib/Makefile
- 	src/Makefile 
+ 	src/Makefile
+	test/Makefile
 ])
 
 AC_OUTPUT

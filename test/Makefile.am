@@ -1,6 +1,4 @@
-#!/bin/sh
-
-# bootstrap
+# Makefile.am
 #
 # Copyright (C) 2023 Ivan Guerreschi
 #
@@ -18,7 +16,10 @@
 # GNU General Public License for more details.
 #
 # You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>. 
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-autoreconf --install --verbose && ./configure && make
-
+TESTS = search_fragment_for_name_test
+check_PROGRAMS = $(TESTS)
+search_fragment_for_name_test_SOURCES = search_fragment_for_name.c
+search_fragment_for_name_test_CFLAGS = -I $(top_srcdir)/lib 
+search_fragment_for_name_test_LDADD = $(top_builddir)/lib/libfragmenta.a
