@@ -21,7 +21,7 @@ int
 main ()
 {
   size_t length_fragments = length ();
-  int expected = 4;
+  int expected = 5;
 
   if (length_fragments == expected)
     return 0;

@@ -23,6 +23,7 @@ static fragment_type fragment[] = {
   {"c", "include", "#include <stdio.h>"},
   {"c", "puts", "puts (\"Hello, World!\");"},
   {"c", "printf", "printf (\"%s\\n\", \"Hello, World!\");"},
+  {"cpp", "include", "#include <iostream>"},
   {"go", "printf", "fmt.Printf(\"%s\\n\", \"Hello, World!\")"},
 };
 
