@@ -59,12 +59,12 @@ src/.deps
 src/*.o
 src/fragmenta
 
-test/.deps
-test/*.o
-test/*.trs
-test/*.log
-test/search_fragment_for_name_test
-test/length_test
+tests/.deps
+tests/*.o
+tests/*.trs
+tests/*.log
+tests/search_fragment_for_name_test
+tests/length_test
 
 TODO.org
 .dir-locals.el

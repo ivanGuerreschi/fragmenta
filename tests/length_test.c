@@ -20,10 +20,10 @@
 int
 main ()
 {
-  size_t length_fragments = length ();
+  size_t length = fragment_length ();
   int expected = 5;
 
-  if (length_fragments == expected)
+  if (length == expected)
     return 0;
   else
     return 1;

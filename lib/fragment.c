@@ -23,12 +23,12 @@ static fragment_type fragment[] = {
   {"c", "include", "#include <stdio.h>"},
   {"c", "puts", "puts (\"Hello, World!\");"},
   {"c", "printf", "printf (\"%s\\n\", \"Hello, World!\");"},
-  {"cpp", "include", "#include <iostream>"},
-  {"go", "printf", "fmt.Printf(\"%s\\n\", \"Hello, World!\")"},
+  {"rust", "use", "use crate::foo::example::iter;"},
+  {"rust", "println!", "println!(\"{}\", \"Hello, World!\");"},
 };
 
 size_t
-length (void)
+fragment_length (void)
 {
   return sizeof (fragment) / sizeof (fragment[0]);
 }
@@ -36,7 +36,7 @@ length (void)
 char *
 all_fragments (void)
 {
-  size_t fragments_length = length ();
+  size_t length = fragment_length ();
 
   char *fragments = malloc (strlen (fragment[0].language) + 2
 			    + strlen (fragment[0].name) + 2
@@ -49,7 +49,7 @@ all_fragments (void)
   strcat (fragments, fragment[0].snippet);
   strcat (fragments, "\n");
 
-  for (size_t i = 1; i < fragments_length; i++)
+  for (size_t i = 1; i < length; i++)
     {
       char *tmp_fragment;
       tmp_fragment = malloc (strlen (fragment[i].language) + 2);
@@ -79,10 +79,10 @@ all_fragments (void)
 const char *
 search_fragment_for_name (const char *language, const char *name)
 {
-  size_t length_fragments = length ();
+  size_t length = fragment_length ();
   char *searched_snippet;
 
-  for (size_t i = 0; i < length_fragments; i++)
+  for (size_t i = 0; i < length; i++)
     {
       if (strcmp (fragment[i].language, language) == 0)
 	{

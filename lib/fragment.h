@@ -32,7 +32,7 @@ typedef struct
   char snippet[50];
 } fragment_type;
 
-size_t length (void);
+size_t fragment_length (void);
 char *all_fragments (void);
 const char *search_fragment_for_name (const char *language,
 				      const char *name);
