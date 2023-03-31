@@ -64,7 +64,6 @@ tests/*.o
 tests/*.trs
 tests/*.log
 tests/search_fragment_for_name_test
-tests/length_test
 
 TODO.org
 .dir-locals.el
